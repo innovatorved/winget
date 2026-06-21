@@ -1,0 +1,17 @@
+# Synced to github.com/innovatorved/winget by CI.
+PackageIdentifier: Innovatorved.RealtimeInterviewCopilot
+PackageVersion: 0.14.2-beta
+Installers:
+  - Architecture: x64
+    InstallerType: nullsoft
+    InstallerUrl: https://github.com/innovatorved/realtime-interview-copilot/releases/download/v0.14.2-beta/Realtime.Interview.Copilot.Beta-0.14.2-beta-win-x64.exe
+    InstallerSha256: 4d6980de6f3eadee9c1f5f8fa94ae2b699f6cb478fcec317439a93da5c10b0ac
+    Scope: user
+    InstallerSwitches:
+      Silent: /S
+      SilentWithProgress: /S
+    AppsAndFeaturesEntries:
+      - DisplayName: Realtime Interview Copilot Beta
+        Publisher: Innovatorved
+ManifestType: installer
+ManifestVersion: 1.6.0
