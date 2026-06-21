@@ -1,47 +1,50 @@
-# WinGet manifests for Realtime Interview Copilot
+# Innovatorved WinGet manifests
 
-Private WinGet manifest repo for [Realtime Interview Copilot Beta](https://github.com/innovatorved/realtime-interview-copilot). Manifests are auto-bumped on each app release by CI in the main repo.
+Central private WinGet manifest repository for [Innovatorved](https://github.com/innovatorved) Windows apps. Mirrors the [homebrew-tap](https://github.com/innovatorved/homebrew-tap) pattern for macOS.
 
-## Install (one command)
+Requires [WinGet](https://apps.microsoft.com/detail/9nblggh4nns1) (App Installer from the Microsoft Store).
 
-```powershell
-irm https://raw.githubusercontent.com/innovatorved/winget/main/install.ps1 | iex
-```
+## Packages
 
-Requires [WinGet](https://apps.microsoft.com/detail/9nblggh4nns1) (App Installer from Microsoft Store).
+| App | Package ID | Install |
+| --- | --- | --- |
+| [Realtime Interview Copilot Beta](https://github.com/innovatorved/realtime-interview-copilot) | `Innovatorved.RealtimeInterviewCopilot` | `irm https://raw.githubusercontent.com/innovatorved/winget/main/install-realtime-interview-copilot.ps1 \| iex` |
 
-## Upgrade
+---
 
-Re-run the install script (it detects an existing install and runs `winget upgrade`):
+## Realtime Interview Copilot Beta
 
-```powershell
-irm https://raw.githubusercontent.com/innovatorved/winget/main/install.ps1 | iex
-```
-
-## Uninstall
+**Install**
 
 ```powershell
-winget uninstall -e --id InnovatorVed.RealtimeInterviewCopilot
+irm https://raw.githubusercontent.com/innovatorved/winget/main/install-realtime-interview-copilot.ps1 | iex
 ```
 
-## Manual install (local manifests)
+**Upgrade** — re-run the install command above.
+
+**Uninstall**
 
 ```powershell
-winget install -e --id InnovatorVed.RealtimeInterviewCopilot --manifest .\manifests\i\InnovatorVed\RealtimeInterviewCopilot\0.14.0-beta
+winget uninstall -e --id Innovatorved.RealtimeInterviewCopilot
 ```
 
-Replace the version folder with the latest entry in `LATEST`.
+Windows builds are unsigned. WinGet will install the app, but SmartScreen may warn on first launch. Use **More info → Run anyway** if prompted.
 
-## Validate manifests (maintainers)
+---
+
+## Maintainers
+
+Each app repo keeps a working copy under `winget/` (manifests + package version pointer). On release, CI in the app repo runs `scripts/update-winget-manifest.js` and pushes updated manifests to this hub (same token pattern as `HOMEBREW_TAP_TOKEN`).
+
+To add a new app:
+
+1. Add manifests under `manifests/i/Innovatorved/<AppName>/`
+2. Add `packages/<AppName>/LATEST`
+3. Add `install-<app-slug>.ps1` wrapper calling shared `install.ps1`
+4. Update the packages table in this README
+
+**Validate manifests (Windows)**
 
 ```powershell
 winget validate .\manifests
 ```
-
-## Unsigned builds
-
-Windows installers are not code-signed. WinGet will install the app, but Windows SmartScreen may warn on first launch. Use **More info → Run anyway** if prompted.
-
-## Maintainer sync
-
-CI in `innovatorved/realtime-interview-copilot` pushes updated manifests here when `WINGET_MANIFEST_TOKEN` is configured. The working copy of manifests lives under `winget/` in the main repo.
