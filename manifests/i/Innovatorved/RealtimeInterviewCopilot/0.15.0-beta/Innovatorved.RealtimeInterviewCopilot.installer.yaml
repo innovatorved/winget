@@ -4,7 +4,7 @@ Installers:
   - Architecture: x64
     InstallerType: nullsoft
     InstallerUrl: https://github.com/innovatorved/realtime-interview-copilot/releases/download/v0.15.0-beta/Realtime.Interview.Copilot.Beta-0.15.0-beta-win-x64.exe
-    InstallerSha256: 8ef9dab560c308c67fe3137d9d23538737d946803779e339f7fdfb4a76c6fa2a
+    InstallerSha256: c9e29c02d5b758b3f75b1527a2e6ed23fd5698da69d17dfbac1f4d94418bf632
     Scope: user
     InstallerSwitches:
       Silent: /S
