@@ -1,0 +1,16 @@
+PackageIdentifier: Innovatorved.RealtimeInterviewCopilot
+PackageVersion: 0.15.3-beta
+Installers:
+  - Architecture: x64
+    InstallerType: nullsoft
+    InstallerUrl: https://github.com/innovatorved/realtime-interview-copilot/releases/download/v0.15.3-beta/Realtime.Interview.Copilot.Beta-0.15.3-beta-win-x64.exe
+    InstallerSha256: 21b964ac9dbc2fb6f13263c9dccc6f18f1c86eed614973dad9c0ae3416854672
+    Scope: user
+    InstallerSwitches:
+      Silent: /S
+      SilentWithProgress: /S
+    AppsAndFeaturesEntries:
+      - DisplayName: Meeting Copilot
+        Publisher: Innovatorved
+ManifestType: installer
+ManifestVersion: 1.6.0
